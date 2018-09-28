@@ -1,26 +1,12 @@
-import { ADD_TODO } from "../constants/action-types";
+import { combineReducers } from 'redux';
 
-const initialState = {
-  todos: []
-};
+import { todosReducer } from "./todosReducer";
+import { visibilityFilterReducer } from "./visibilityFilterReducer";
 
-let nextGeneratedId = 0;
+export default combineReducers({
+  todos: todosReducer,
+  visibilityFilter: visibilityFilterReducer
+});
 
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_TODO: 
-      return { ...state, 
-        todos: [ ...state.todos, 
-          {
-            id: nextGeneratedId++,
-            text: action.payload, 
-            completed: false
-          }]
-      };
-    default:
-      return state;
-  }
-}
 
-export default rootReducer;
 

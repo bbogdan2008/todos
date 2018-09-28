@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import List from './List';
 import AddTodo from './AddTodo';
+import FilterLink from './FilterLink';
 
 class App extends Component {
   render() {
@@ -11,6 +12,9 @@ class App extends Component {
         </header>
         <AddTodo />
         <List />
+        Show: <FilterLink filter="SHOW_ALL">All</FilterLink>{' '}
+        <FilterLink filter="SHOW_ACTIVE">Active</FilterLink>{' '}
+        <FilterLink filter="SHOW_COMPLETED">Completed</FilterLink>
       </div>
     );
   }

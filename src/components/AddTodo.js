@@ -42,7 +42,7 @@ class AddTodo extends Component {
             onChange={this.handleChange}
           />
           <button type="submit">
-          Save
+          Add
         </button>
         </div>
        
