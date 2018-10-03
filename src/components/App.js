@@ -6,12 +6,14 @@ import FilterLink from './FilterLink';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <header>
           <h1>Todos</h1>
+          <hr />
         </header>
         <AddTodo />
         <List />
+        <hr />
         Show: <FilterLink filter="SHOW_ALL">All</FilterLink>{' '}
         <FilterLink filter="SHOW_ACTIVE">Active</FilterLink>{' '}
         <FilterLink filter="SHOW_COMPLETED">Completed</FilterLink>

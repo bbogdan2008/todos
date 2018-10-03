@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions/index';
- 
+
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+
 class AddTodo extends Component {
   constructor() {
     super();
@@ -32,21 +34,17 @@ class AddTodo extends Component {
   render() {
     const { text } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="title">To do:</label>
-          <input
+      <Form inline onSubmit={this.handleSubmit}>
+        <FormGroup>
+          <Input
             type="text"
             id="title"
             value={text}
             onChange={this.handleChange}
           />
-          <button type="submit">
-          Add
-        </button>
-        </div>
-       
-      </form>
+        </FormGroup>
+        <Button>Add</Button>
+      </Form>
     )
   }
 }
