@@ -12,3 +12,13 @@ install:
 
 script:
   - npm run build
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "ad5fd188-44e5-43d0-964d-a3e3f75f3326"
+  app: mytodos001
+  on:
+    repo: bbogdan2008/todos
+  run:
+    - restart
