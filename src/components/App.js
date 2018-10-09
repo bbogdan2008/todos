@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="container">
         <header>
-          <h1>Todos</h1>
+          <h1>Todos - by bb</h1>
           <hr />
         </header>
         <AddTodo />
