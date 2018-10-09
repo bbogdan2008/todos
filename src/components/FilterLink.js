@@ -8,14 +8,14 @@ class FilterLink extends Component {
     render() {
         const {filter} = this.props;
         return (
-            <a href="#"
-                onClick={event => {
+            <button 
+                    onClick={event => {
                     event.preventDefault();
                     this.props.setVisibilityFilter(filter);
                 }}
             >
                 {this.props.children}
-            </a>
+            </button>
         );
     }
 };

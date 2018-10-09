@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions/index';
 
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 class AddTodo extends Component {
   constructor() {

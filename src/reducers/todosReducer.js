@@ -2,8 +2,18 @@ import { ADD_TODO } from "../constants/action-types";
 import { TOGGLE_TODO } from "../constants/action-types";
 
 const initialState = [];
-
 let nextGeneratedId = 0;
+
+export const todosReducer = (state = initialState, action) => {
+  switch (action.type) {
+      case ADD_TODO:
+          return [...state, todo(undefined, action)];
+      case TOGGLE_TODO:
+          return state.map(t => todo(t, action));
+      default:
+          return state;
+  }
+}
 
 const todo = (state, action) => {
     switch (action.type) {
@@ -26,14 +36,5 @@ const todo = (state, action) => {
     }
 }
 
-export const todosReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case ADD_TODO:
-            return [...state, todo(undefined, action)];
-        case TOGGLE_TODO:
-            return state.map(t => todo(t, action));
-        default:
-            return state;
-    }
-}
+
 
