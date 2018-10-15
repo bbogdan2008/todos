@@ -7,23 +7,23 @@ mongodb
 
 ------------
 
-todos
-	server
+TODOs
+	- server
 		add todo server module
 		implement rest api
 		rest api tests
-	client
+	- client
 		move to /client
 		redux
 		redux sagas
 		call service layer (rest api)
-	db
+	- db
 		connect to mlab instance
-	deployment
+	- deployment
 		travis.ci
 		heroku
 	
-	functionalities
+	- functionalities
 		user roles
 			
 			
