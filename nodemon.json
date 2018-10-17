@@ -1,0 +1,8 @@
+{
+  "env" : {
+    "MONGOLAB_USER": "bbogdan2008",
+    "MONGOLAB_PSWD": "temporara123",
+    "MONGOLAB_URL": "ds013300.mlab.com:13300/mytodos",
+    "JWT_KEY": "secretkey20"
+  }
+}

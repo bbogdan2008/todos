@@ -10,7 +10,7 @@ export function* watcherSaga() {
 function fetchTodoList() {
     return axios({
       method: "GET",
-      url: "http://localhost:3001/todos"
+      url: "/api/todos"
     });
   }
 
