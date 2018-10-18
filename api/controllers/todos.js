@@ -69,3 +69,39 @@ exports.todos_get_todo = (req, res, next) => {
         res.status(500).json({ error: err });
       });
   }
+
+  exports.todos_update_todo = (req, res, next) => {
+    const id = req.params.todoId;
+  
+    const updateOps = {};
+    for (const ops of req.body) {
+      updateOps[ops.propName] = ops.value;
+    }
+  
+    Todo.update({ _id: id }, { $set: updateOps })
+      .exec()
+      .then(result => {
+        console.log(result);
+        res.status(200).json({
+          message: 'Todo updated'
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({ error: err });
+      });
+  }
+
+  exports.todos_delete_todo = (req, res, next) => {
+    const id = req.params.todoId;
+    Todo.remove({ _id: id })
+      .exec()
+      .then(result => {
+        res.status(200).json({
+          message: 'Todo deleted'
+        });
+      })
+      .catch(err => {
+        res.status(500).json({ error: err });
+      });
+  }
