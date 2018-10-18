@@ -26,4 +26,3 @@ This is a sample project with
     -- heroku
  - functionalities
     -- user roles
-
