@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 const todoRoutes = require('./api/routes/todos');
+const userRoutes = require('./api/routes/users');
 
 const mongoose = require('mongoose');
 mongoose.connect(
@@ -44,6 +45,7 @@ app.use((req, res, next) => {
 
 // Routes for handling requests
 app.use('/api/todos', todoRoutes);
+app.use('/api/users', userRoutes);
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
