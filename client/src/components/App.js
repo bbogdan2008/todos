@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
-import List from './List';
-import AddTodo from './AddTodo';
-import FilterLink from './FilterLink';
+import { Router, Route } from 'react-router-dom';
+import { history } from '../helpers/history';
+
+import HomePage from './HomePage';
+import LoginPage from './LoginPage';
+import RegisterPage from './RegisterPage';
+import PrivateRoute from './PrivateRoute';
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <header>
-          <h1>Todos</h1>
-          <hr />
-        </header>
-        <AddTodo />
-        <List />
-        <hr />
-        Show: 
-        <FilterLink filter="SHOW_ALL">All</FilterLink>{' '}
-        <FilterLink filter="SHOW_ACTIVE">Active</FilterLink>{' '}
-        <FilterLink filter="SHOW_COMPLETED">Completed</FilterLink>
-      </div>
+      <Router history={history}>
+        <div>
+          <PrivateRoute exact path="/" component={HomePage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/register" component={RegisterPage} />
+        </div>
+      </Router>
     );
   }
 }
