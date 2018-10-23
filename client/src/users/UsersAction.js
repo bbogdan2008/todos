@@ -1,4 +1,4 @@
-import { USERS_LOGIN_REQUEST, USERS_LOGIN_SUCCESS, USERS_LOGIN_FAILURE } from "../constants/action-types";
+import { USERS_LOGIN_REQUEST, USERS_LOGIN_SUCCESS, USERS_LOGIN_FAILURE, USERS_LOGOUT } from "../constants/action-types";
 
 export const login = (email, pswd) => ({
   type: USERS_LOGIN_REQUEST,
@@ -20,4 +20,8 @@ export const loginFailure = (err) => ({
   payload: {
     err: err
   }
+});
+
+export const logout = (token) => ({
+  type: USERS_LOGOUT
 });

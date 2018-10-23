@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { login } from '../UsersAction';
+import { login, logout } from '../UsersAction';
 
 class LoginPage extends Component {
 
   constructor(props) {
     super(props);
+
+    // reset login
+    this.props.dispatch(logout());
 
     this.state = {
       username: "",

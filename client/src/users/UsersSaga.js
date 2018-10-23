@@ -5,6 +5,7 @@ import { history } from '../helpers/history';
 // watcher saga: watches for actions dispatched to the store, starts worker saga
 export function* usersSaga() {
   yield takeLatest("USERS_LOGIN_REQUEST", workerSaga);
+  yield takeLatest("USERS_LOGOUT", logout);
 }
 
 // function that makes the api request and returns a Promise for response
@@ -17,12 +18,15 @@ function fetchLogin(email, password) {
   );
 };
 
+function logout() {
+  // remove user from local storage to log user out
+  localStorage.removeItem('user');
+}
+
 // worker saga: makes the api call when watcher saga sees the action
-function* workerSaga() {
+function* workerSaga({ payload: {email, pswd}}) {
   try {
-    const email = "bbogdan2008@yahoo.com";
-    const password = "mypswd";
-    const response = yield call(fetchLogin, email, password);
+    const response = yield call(fetchLogin, email, pswd);
     console.log(response);
     const token = response.data.token;
 

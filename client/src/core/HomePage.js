@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import AddTodo from '../todo/list/components/AddTodo';
 import List from '../todo/list/components/List';
@@ -19,6 +20,10 @@ class HomePage extends Component {
         <FilterLink filter="SHOW_ALL">All</FilterLink>{' '}
         <FilterLink filter="SHOW_ACTIVE">Active</FilterLink>{' '}
         <FilterLink filter="SHOW_COMPLETED">Completed</FilterLink>
+
+        <div>
+        | Copyright @2018 | <Link to="/login">Logout</Link>
+        </div>
       </div>
     );
   }
