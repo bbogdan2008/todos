@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { toggleTodo, fetchTodoList } from '../actions';
+import { toggleTodo, fetchTodoList } from '../TodoListAction';
 
 class ConnectedList extends Component {
 

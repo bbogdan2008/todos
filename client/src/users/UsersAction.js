@@ -18,6 +18,6 @@ export const loginSuccess = (token) => ({
 export const loginFailure = (err) => ({
   type: USERS_LOGIN_FAILURE,
   payload: {
-    error: err
+    err: err
   }
 });

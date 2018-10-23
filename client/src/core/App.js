@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Router, Route } from 'react-router-dom';
 import { history } from '../helpers/history';
 
-import HomePage from './HomePage';
-import LoginPage from './LoginPage';
-import RegisterPage from './RegisterPage';
 import PrivateRoute from './PrivateRoute';
+import HomePage from './HomePage';
+import LoginPage from '../users/components/LoginPage';
+import RegisterPage from '../users/components/RegisterPage';
 
 class App extends Component {
   render() {

@@ -1,5 +1,5 @@
-import { ADD_TODO, TOGGLE_TODO } from "../constants/action-types";
-import { LIST_TODOS_REQUEST, LIST_TODOS_SUCCESS, LIST_TODOS_FAILURE } from "../constants/action-types";
+import { ADD_TODO, TOGGLE_TODO } from "../../constants/action-types";
+import { LIST_TODOS_REQUEST, LIST_TODOS_SUCCESS, LIST_TODOS_FAILURE } from "../../constants/action-types";
 
 const initialState = {
     list: [],

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import List from './List';
-import AddTodo from './AddTodo';
-import FilterLink from './FilterLink';
+
+import AddTodo from '../todo/list/components/AddTodo';
+import List from '../todo/list/components/List';
+import FilterLink from '../todo/list/components/FilterLink';
 
 class HomePage extends Component {
-
   render() {
-
     return(
       <div className="container">
         <header>

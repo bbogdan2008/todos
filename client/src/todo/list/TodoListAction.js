@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER, LIST_TODOS_REQUEST } from "../constants/action-types";
+import { ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER, LIST_TODOS_REQUEST } from "../../constants/action-types";
 
 export const addTodo = text => ({
   type: ADD_TODO,

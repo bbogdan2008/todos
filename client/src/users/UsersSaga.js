@@ -10,12 +10,12 @@ export function* usersSaga() {
 // function that makes the api request and returns a Promise for response
 function fetchLogin(email, password) {
 
-  return axios.post("/api/users/login", {
+  return axios.post("api/users/login", {
       email: email,
       password: password
     }
   );
-}
+};
 
 // worker saga: makes the api call when watcher saga sees the action
 function* workerSaga() {

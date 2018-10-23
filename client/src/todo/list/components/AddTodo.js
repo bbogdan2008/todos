@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions';
+import { addTodo } from '../TodoListAction';
 
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 

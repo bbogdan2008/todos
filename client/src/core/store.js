@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from '../reducers/index';
+import rootReducer from './reducers';
 
 import createSagaMiddleware from "redux-saga";
 
-import { watcherSaga } from "../sagas/index";
-import { usersSaga } from "../sagas/users";
+import { watcherSaga } from "../todo/list/TodoListSaga";
+import { usersSaga } from "../users/UsersSaga";
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
@@ -17,7 +17,7 @@ const store = createStore(
   compose(applyMiddleware(sagaMiddleware), reduxDevTools)
 );
 
-// run the saga
+// run the sagas
 sagaMiddleware.run(watcherSaga);
 sagaMiddleware.run(usersSaga);
 

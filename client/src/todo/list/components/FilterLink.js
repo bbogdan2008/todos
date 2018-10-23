@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { setVisibilityFilter } from '../actions';
+import { setVisibilityFilter } from '../TodoListAction';
 
 class FilterLink extends Component {
-
     render() {
         const {filter} = this.props;
         return (
@@ -25,6 +24,5 @@ const mapDispatchToProps = dispatch => {
         setVisibilityFilter: filter => dispatch(setVisibilityFilter(filter))
     }
 }
-
 
 export default connect(null, mapDispatchToProps)(FilterLink);
