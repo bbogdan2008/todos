@@ -5,26 +5,30 @@
 This is a sample project with
 
     - server side with nodejs/express, expose REST api
-    - client side with react, redux, redux saga
+    - client side with react, redux, redux saga, react-router, mongoose
     - mongodb
-    - automatic deployment to heroku
+    - travis-ci, automatic deployment to heroku node
+    - https://mytodos001.herokuapp.com/
 
 ### TODOs 
 
- - server
- 
-    - add todo server module
-    - implement rest api
-    - rest api tests
- - client
-    - move to /client
-    - redux
-    - redux sagas
-    - call service layer (rest api)
- - db 
- 	- connect to mlab instance
- - deployment
-    - travis.ci
-    - heroku
- - functionalities
-    - user roles
+ functionalities
+  - Users
+
+    - login action
+    - logout action
+    - register action
+    - user roles (save in DB)
+
+  - Todos
+
+    - add todo (save in DB)
+    - update/toggle todo (save in DB)
+    - remove todo (save in DB)
+
+  - Lists
+
+
+  
+
+    
