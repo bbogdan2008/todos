@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 const todoRoutes = require('./api/routes/todos');
 const userRoutes = require('./api/routes/users');
+const planRoutes = require('./api/routes/plans');
 
 const mongoose = require('mongoose');
 mongoose.connect(
@@ -18,7 +19,7 @@ mongoose.connect(
     useNewUrlParser: true
   }
 );
-// mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 
 var app = express();
 
@@ -46,6 +47,7 @@ app.use((req, res, next) => {
 // Routes for handling requests
 app.use('/api/todos', todoRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/plans', planRoutes);
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
