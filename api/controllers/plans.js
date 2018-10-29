@@ -4,7 +4,7 @@ const Plan = require('../models/plan');
 
 exports.plans_get_all = (req, res, next) => {
     Plan.find()
-        .select('_id name')
+        .select('_id name creationDate creationUser')
         .exec()
         .then(planList => {
             const response = {
@@ -24,13 +24,42 @@ exports.plans_get_all = (req, res, next) => {
         });
 }
 
+exports.plans_get_all_for_user = (req, res, next) => {
+    const userId = req.body.userId;
+    Plan.find({creationUser: userId})
+        .select('_id name creationDate creationUser')
+        .exec()
+        .then(planList => {
+            const response = {
+                count: planList.length,
+                plans: planList.map(plan => {
+                    return {
+                        _id: plan._id,
+                        text: plan.name,
+                        creationDate: plan.creationDate,
+                        creationUser: plan.creationUser,
+                        updatedDate: plan.updatedDate
+                    }
+                })
+            }
+            res.status(200).json(response);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: err });
+        });
+}
+
 exports.plans_create = (req, res, next) => {
-    console.log(req);
-    console.log(res);
-    console.log(req.body.text);
+    console.log(req.body.name);
+    console.log(req.body.creationUser);
+    const creationDate = Date.now();
     const plan = new Plan({
         _id: new mongoose.Types.ObjectId(),
-        plan: req.body.plan
+        name: req.body.name,
+        creationUser: req.body.creationUser,
+        creationDate: creationDate,
+        updatedDate: creationDate
     });
 
     plan
@@ -40,8 +69,11 @@ exports.plans_create = (req, res, next) => {
             res.status(201).json({
                 message: 'Created Plan successfully',
                 createdPlan: {
+                    _id: result._id,
                     name: result.name,
-                    _id: result._id
+                    creationUser: result.creationUser,
+                    creationDate: result.creationDate,
+                    updatedDate: result.updatedDate
                 }
             });
         })
