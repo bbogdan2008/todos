@@ -5,6 +5,8 @@ import AddTodo from '../todo/list/components/AddTodo';
 import List from '../todo/list/components/List';
 import FilterLink from '../todo/list/components/FilterLink';
 
+import PlansList from '../plans/components/List';
+
 class HomePage extends Component {
   render() {
     return(
@@ -15,6 +17,9 @@ class HomePage extends Component {
         </header>
         <AddTodo />
         <List />
+        <hr />
+        Plans:
+        <PlansList />
         <hr />
         Show: 
         <FilterLink filter="SHOW_ALL">All</FilterLink>{' '}

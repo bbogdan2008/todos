@@ -3,8 +3,9 @@ import rootReducer from './reducers';
 
 import createSagaMiddleware from "redux-saga";
 
-import { watcherSaga } from "../todo/list/TodoListSaga";
-import { usersSaga } from "../users/UsersSaga";
+import { todoSaga } from "../todo/list/TodoListSaga";
+import { userSaga } from "../users/UsersSaga";
+import { planSaga } from "../plans/PlanSaga";
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
@@ -18,7 +19,8 @@ const store = createStore(
 );
 
 // run the sagas
-sagaMiddleware.run(watcherSaga);
-sagaMiddleware.run(usersSaga);
+sagaMiddleware.run(todoSaga);
+sagaMiddleware.run(userSaga);
+sagaMiddleware.run(planSaga);
 
 export default store;

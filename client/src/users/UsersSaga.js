@@ -3,7 +3,7 @@ import axios from "axios";
 import { history } from '../helpers/history';
 
 // watcher saga: watches for actions dispatched to the store, starts worker saga
-export function* usersSaga() {
+export function* userSaga() {
   yield takeLatest("USERS_LOGIN_REQUEST", workerSaga);
   yield takeLatest("USERS_LOGOUT", logout);
 }
@@ -27,7 +27,6 @@ function logout() {
 function* workerSaga({ payload: {email, pswd}}) {
   try {
     const response = yield call(fetchLogin, email, pswd);
-    console.log(response);
     const token = response.data.token;
 
     localStorage.setItem('user', token);

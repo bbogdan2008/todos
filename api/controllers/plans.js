@@ -2,30 +2,8 @@ const mongoose = require('mongoose');
 
 const Plan = require('../models/plan');
 
-exports.plans_get_all = (req, res, next) => {
-    Plan.find()
-        .select('_id name creationDate creationUser')
-        .exec()
-        .then(planList => {
-            const response = {
-                count: planList.length,
-                plans: planList.map(plan => {
-                    return {
-                        _id: plan._id,
-                        text: plan.name
-                    }
-                })
-            }
-            res.status(200).json(response);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json({ error: err });
-        });
-}
-
 exports.plans_get_all_for_user = (req, res, next) => {
-    const userId = req.body.userId;
+    const userId = req.userData.userId;
     Plan.find({creationUser: userId})
         .select('_id name creationDate creationUser')
         .exec()
@@ -51,13 +29,12 @@ exports.plans_get_all_for_user = (req, res, next) => {
 }
 
 exports.plans_create = (req, res, next) => {
-    console.log(req.body.name);
-    console.log(req.body.creationUser);
+    const userId = req.userData.userId;
     const creationDate = Date.now();
     const plan = new Plan({
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
-        creationUser: req.body.creationUser,
+        creationUser: userId,
         creationDate: creationDate,
         updatedDate: creationDate
     });
