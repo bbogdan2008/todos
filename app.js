@@ -10,13 +10,16 @@ const userRoutes = require('./api/routes/users');
 const planRoutes = require('./api/routes/plans');
 
 const mongoose = require('mongoose');
+
+// db connection
 mongoose.connect(
   "mongodb://" +
   process.env.MONGOLAB_USER + ":" +
   process.env.MONGOLAB_PSWD + "@" +
   process.env.MONGOLAB_URL,
-  {
-    useNewUrlParser: true
+  { 
+    useCreateIndex: true,
+    useNewUrlParser: true 
   }
 );
 mongoose.Promise = global.Promise;
