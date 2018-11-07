@@ -7,8 +7,8 @@ const User = require('../models/user');
 exports.users_signup = (req, res, next) => {
   User.find({ email: req.body.email })
     .exec()
-    .then(user => {
-      if (user.length > 0) {
+    .then(users => {
+      if (users.length > 0) {
         return res.status(409).json({
           message: 'Mail exists'
         });
@@ -43,7 +43,7 @@ exports.users_signup = (req, res, next) => {
 
 exports.users_login = (req, res, next) => {
   User.find({ email: req.body.email }) // TODO use findOne
-    .select('_id email name')
+    .select('_id email name password')
     .exec()
     .then(users => {
       if (users.length < 1) {
